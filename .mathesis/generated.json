@@ -24,7 +24,7 @@
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
     "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
     "README.md": "c1ea18efd085dc4a1aece46407a85fb86586271401f90ad8d49992275a3ea4db",
-    "formalization/nodes.json": "601fb47f7b02ee2e164e60cc77a98211085d101c6bebb23e092017d6cae37008",
+    "formalization/nodes.json": "d51f3e7a1862efe5c1194a90f9facc80d6f6fa7767426faa2a02d18c66ba779c",
     "manuscript/mertens-range-two-stable-matching-v3/MANIFEST.sha256": "a3e46516f192a3a942d3ab8d10e568734f4a608dfbfa0462d63e1a135ec87ed8",
     "manuscript/mertens-range-two-stable-matching-v3/README.md": "bfe223fa54410ac6a576042056d4101be2b5e455841806bc7b52290b93cba6dc",
     "manuscript/mertens-range-two-stable-matching-v3/checker-output.json": "fe313148297bbee72f7ffd21a1892d1eaf2451e1f8406d847281b51bc12929b3",
@@ -36,5 +36,5 @@
     "paper.pdf": "3cd7a4bc681c43459aff25d73668b666f7db3313c43b706b04f7d24a0aa1049b",
     "source.archive": "7749ed2eaceccab2a57359ac71ece73a7a287a2b064edde29ff04793cdc82d4a"
   },
-  "snapshot_identity": "8c819e005ad608e89062f4fbbca25b54a2045f06b4989bfc9934b227ed043d12"
+  "snapshot_identity": "268b8f207053bc74def0de66588e66632c338b89d5d9d359ffbae280d8ad3f47"
 }

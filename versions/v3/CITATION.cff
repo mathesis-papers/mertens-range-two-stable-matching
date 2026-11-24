@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Mertens's range-two stable-matching conjecture and fully supported preference laws"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-24"
+version: "3"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/mertens-range-two-stable-matching?version=3"
+license: "CC-BY-4.0"

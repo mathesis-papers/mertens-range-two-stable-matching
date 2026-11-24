@@ -1,0 +1,11 @@
+{
+  "schema": "mathesis.materials.v1",
+  "work": "mertens-range-two-stable-matching",
+  "version": 3,
+  "repository_url": "https://github.com/mathesis-papers/mertens-range-two-stable-matching",
+  "site_url": "https://papers.trureturing.org/mertens-range-two-stable-matching/",
+  "doi": null,
+  "reading": {},
+  "slides": [],
+  "visualizations": []
+}

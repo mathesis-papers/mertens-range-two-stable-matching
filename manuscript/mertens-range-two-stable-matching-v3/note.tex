@@ -1,0 +1,541 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\leanfile}[2]{\href{https://github.com/the-omega-institute/trureturing/blob/f960cb09514c99f42fd07398f5240a77378ea4db/D5/S3/Combinatorics/Graph/Roommates/#1.lean}{#2}}
+\title{Mertens's range-two stable-matching conjecture\protect\\and fully supported preference laws}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{November 16, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For Mertens's Conjecture~3 in \emph{Random stable matchings}
+\cite[Section~3.2, equation~(15), p.~7; arXiv:cond-mat/0509221v2]{mertens2005},
+we prove $p_N=\Theta(q^N)$ for the one-dimensional range-two model,
+simultaneously for both parities, by a six-site completion of open
+preference words. Here $p_N$ is the probability of a stable partial
+matching, and $q\in(0,1)$. The same construction proves this conclusion
+for every fully supported independent identically distributed law on the
+24 local rankings. For the uniform law it gives explicit finite-size
+bounds and convergent enclosures for $q$. We also give the elementary
+range-one comparison and triangle-packing bounds, and explain the
+complete-graph endpoint of Conjecture~5 using Young and Studebaker's
+corrected asymptotic constant.
+\end{abstract}
+
+\section{The probability and its exponential base}
+Mertens predicted exponential decay of the solvability probability on
+periodic finite-range grids \cite[Conjecture~3]{mertens2005}.
+For range two in one dimension, the local exclusive-triangle obstruction
+already gives exponential upper bounds, but it does not identify a base
+that also gives a lower bound up to a constant factor. We obtain that
+common base by a six-site completion of open intervals.
+
+For $N\geq5$, take the labelled vertex set $\Z/N\Z$ and join each vertex
+$i$ to $i+1,i+2,i-1,i-2$. These four neighbors are distinct. Independently
+at each vertex choose a uniform strict ranking of its four neighbors;
+there are $24^N$ preference profiles. Every neighbor is preferable to
+being single. A partial matching is stable when no edge outside the
+matching has both endpoints preferring one another to their assignments.
+Thus a single endpoint always prefers an acceptable partner, and two
+adjacent singles block. This is the convention of
+\cite[Section~2]{mertens2005}, not a perfect-matching requirement.
+Write $A_N$ for the number of profiles with at least one stable partial
+matching and $p_N=A_N/24^N$. Each profile is counted once, regardless of
+its number of stable matchings.
+
+For the auxiliary open model let $I_m=\{0,\ldots,m-1\}$, with $I_0$
+empty. A ranking word of length $m$ assigns to each $i\in I_m$ a
+bijection $r_i:\{-2,-1,1,2\}\to\{0,1,2,3\}$, smaller ranks being
+preferred. Set $r_i(0)=4$. A certificate is a displacement vector
+$d:I_m\to\{-2,-1,0,1,2\}$ with the following properties:
+\begin{enumerate}
+\item If $d_i\ne0$ and $i+d_i=j\in I_m$, then $d_j=-d_i$.
+\item The targets $i+d_i$ with $d_i\ne0$ are distinct integers,
+including targets outside $I_m$.
+\item For $i<j\leq i+2$ in $I_m$, either $d_i=j-i$, or
+\[
+ r_i(d_i)<r_i(j-i)\quad\hbox{or}\quad r_j(d_j)<r_j(i-j).
+\]
+\end{enumerate}
+An exterior request retains its actual neighbor rank; it is not treated
+as being single. Let $b_m$ be the number of words admitting at least one
+certificate. Thus $b_0=1$ and $b_m\leq24^m$.
+
+\begin{theorem}\label{thm:main}
+There is a number $\lambda$ satisfying
+\[
+  6\leq\lambda\leq 13808^{1/3}<24
+\]
+such that, on setting $q=\lambda/24$, every integer $N\geq7$ satisfies
+\begin{equation}\label{eq:main}
+ \lambda^{-6}q^N\ \leq\ p_N\ \leq\ b_6q^N,
+ \qquad 1\leq b_6\leq24^6.
+\end{equation}
+In particular,
+\[
+ \frac14\leq q\leq\left(1-\frac1{864}\right)^{1/3}<1,
+ \qquad \lim_{N\to\infty}p_N^{1/N}=q.
+\]
+The same base works for both parities.
+\end{theorem}
+
+The estimate is qualitative: it does not determine $q$ or establish the
+numerical fit near $0.97$ in \cite[Section~3.2]{mertens2005}.
+The complete-graph problem has a different neighborhood and asymptotic
+regime. Mertens's later simulations \cite{mertens2015} address that regime;
+Chin and Michelen \cite[Theorem~1]{chin2026} give a vanishing
+upper bound in that complete-graph model; subsequently Young and
+Studebaker \cite[Theorem~1.1]{young2026} prove its $N^{-1/4}$
+asymptotic with a corrected leading constant. Neither statement replaces
+the fixed-degree cyclic estimate proved here.
+
+\section{Restriction and a six-site completion}
+
+\begin{lemma}\label{lem:restriction}
+For $m,k\geq0$,
+\[
+ 6^m\leq b_m,\qquad b_{m+k}\leq b_mb_k.
+\]
+\end{lemma}
+\begin{proof}
+Restriction to an interval preserves all three certificate conditions:
+translate both sites and targets by the interval's starting point.
+A partner removed by restriction becomes an exterior request with its
+original displacement and rank. Splitting a word of length $m+k$ into
+its two ranking subwords is injective, so $b_{m+k}\leq b_mb_k$.
+
+For the lower bound prescribe displacements $+1,-1,+1,-1,\ldots$.
+When $m$ is odd the final $+1$ is an exterior request. Targets are
+distinct and all internal requests are reciprocal. Put the prescribed
+displacement first at every site. All sites then have their first
+choice, so no internal edge blocks. Each site has $3!=6$ ways to rank
+the remaining offsets, independently.
+\end{proof}
+
+\begin{lemma}[Six-site completion]\label{lem:completion}
+For $m,k\geq1$,
+\begin{equation}\label{eq:injections}
+ b_mb_k\leq b_{m+k+6},\qquad b_m\leq A_{m+6}.
+\end{equation}
+Also $A_N\leq b_N$ for every $N\geq5$.
+\end{lemma}
+\begin{proof}
+First place two certified words on $[0,m-1]$ and
+$[m+6,m+6+k-1]$, leaving six sites between them. Label these sites
+$0,1,2,3,4,5$ locally. Requests from the left word into the gap land at
+sites $0,1$; requests from the right word land at $4,5$. Injectivity of
+targets makes the requests distinct within each word, and the two
+landing sets are disjoint. Fulfill every such request by matching its
+old endpoint to its requested gap site.
+
+The remaining free sites of $\{0,1,2\}$ form a clique containing $2$;
+the remaining free sites of $\{3,4,5\}$ form a clique containing $3$.
+In each clique of even size pair all its sites. In a clique of odd size,
+leave its center single and pair the other sites. Every such pair has
+distance at most two. If both centers remain single, match $2$ to $3$.
+Consequently at most one gap site remains single, and it is $2$ or $3$.
+
+At each matched gap site put its assigned partner first and order its
+other offsets arbitrarily. Rank offsets at a single gap site arbitrarily.
+Old displacements, including requests at the two outer ends of the
+whole interval, remain unchanged. Reciprocity and target injectivity
+hold: an old site requesting the gap cannot already be the target of
+another old site, by its original reciprocal condition; reserved gap
+sites are distinct and are excluded from the free-site pairing.
+The two old intervals are more than distance two apart, so their targets
+cannot collide and they have no edge between them.
+
+There is no new blocking edge. Edges inside an old word retain the
+original inequalities. A matched gap endpoint has its first choice and
+rejects every alternative. A single gap site has no old neighbor: its
+distance from either old interval is at least three. Every gap neighbor
+of that single is matched, since there is at most one single in the
+gap. These observations cover every edge of the completed word.
+
+For definiteness choose the lexicographically least certificate for each
+input word and fixed choices for the finite gap construction. The map
+on words is injective because restriction to the two fixed old intervals
+recovers both inputs. No matching witnesses are counted. This proves
+the first inequality in \eqref{eq:injections}.
+
+For the second inequality place one word on $[0,m-1]$ in a cycle of
+length $m+6$ and append six gap sites. Its right exterior targets
+$m,m+1$ occupy gap sites $0,1$; its left targets $-2,-1$ become gap
+sites $4,5$ after reduction modulo $m+6$. These four targets are
+distinct; only the targets actually requested are occupied. The same
+completion applies. The old ranks of signed neighbors are unchanged.
+No edge connects old sites across the six-site gap, and gap centers
+remain at cyclic distance at least three from every old site. Thus the
+same edge check proves stability, even when $m=1$ or $m=2$.
+Restriction recovers the original ranking word, proving injectivity.
+
+Finally cut a stable cyclic matching at the label $0$. Assign displacement
+$0$ to a single, and the unique signed displacement in $\{-2,-1,1,2\}$
+to every matched vertex. Uniqueness holds already at $N=5$.
+Reciprocity survives for partners inside the interval. Equality of two
+integer targets would imply equality of their cyclic targets, contradicting
+injectivity of the matching. Every internal edge retains its original
+nonblocking condition. The resulting word is certified; retaining the
+whole ranking profile gives an injection and $A_N\leq b_N$.
+\end{proof}
+
+\section{Strict loss and the common growth rate}
+\begin{lemma}\label{lem:triangle}
+$b_3\leq24^3-16=13808$.
+\end{lemma}
+\begin{proof}
+On three consecutive sites put the two internal neighbors first and
+second in cyclic order: each vertex ranks its predecessor first and its
+successor second. If a certificate contains no internal pair, every
+vertex prefers either internal neighbor to its exterior request or to
+being single, so an internal edge blocks. If there is an internal pair,
+the remaining vertex prefers both members of that pair to its assignment.
+One member of the pair ranks this remaining vertex first and its
+assigned partner second, so their edge blocks. Thus no certificate exists.
+This is the exclusive odd-cycle obstruction of
+\cite[Section~2 and equation~(14)]{mertens2005}.
+
+There are two cyclic orientations. Once one is fixed, the two exterior
+offsets can be ordered in $2!$ ways at each of three sites, giving
+$2\cdot2^3=16$ distinct forbidden words. Their orientations differ in
+their first-ranked internal neighbors, so the two sets are disjoint.
+\end{proof}
+
+\begin{lemma}\label{lem:defect}
+There is $h\in[\log6,\log24)$ such that, for every $m\geq0$,
+\begin{equation}\label{eq:defect}
+ hm\leq\log b_m\leq hm+\log b_6.
+\end{equation}
+Moreover $3h\leq\log13808$.
+\end{lemma}
+\begin{proof}
+Put $f_m=\log b_m$ and $D=f_6$. By Lemmas~\ref{lem:restriction}
+and~\ref{lem:completion},
+\[
+ f_{m+k}\leq f_m+f_k,\qquad
+ f_m+f_k\leq f_{m+k+6}\leq f_{m+k}+D \quad(m,k\geq1).
+\]
+The reverse inequality also holds when one index is zero because
+$f_0=0$ and $D\geq0$. Define $h=\inf_{j\geq1}f_j/j$.
+The lower bound $b_j\geq6^j$ gives $h\geq\log6$.
+For fixed $j$, divide $m=aj+r$, $0\leq r<j$, to obtain
+$f_m\leq af_j+f_r$. The finitely many remainders have bounded $f_r$,
+so $\limsup f_m/m\leq f_j/j$. Taking the infimum and using the
+definition of $h$ gives $f_m/m\to h$ and $hm\leq f_m$.
+
+For fixed $m\geq1$, iteration of the reverse inequality gives
+$f_{am}\geq af_m-(a-1)D$. Divide by $am$ and let $a\to\infty$:
+$h\geq(f_m-D)/m$. This is the upper bound in \eqref{eq:defect};
+the case $m=0$ follows from $D\geq0$.
+Finally $3h\leq f_3\leq\log13808<3\log24$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Let $\lambda=e^h$. Exponentiating \eqref{eq:defect} gives
+$\lambda^m\leq b_m\leq b_6\lambda^m$. For $N\geq7$,
+Lemma~\ref{lem:completion} supplies
+\[
+ \lambda^{N-6}\leq b_{N-6}\leq A_N\leq b_N\leq b_6\lambda^N.
+\]
+Divide by $24^N$ to get \eqref{eq:main} with $q=\lambda/24$.
+The bounds on $h$ give the bounds on $\lambda$ and $q$.
+Taking $N$th roots in \eqref{eq:main} proves the limit along all
+integers, not just one parity.
+\end{proof}
+
+\begin{corollary}\label{cor:prefix}
+The same $q$ admits positive constants $c_*,C_*$ such that
+$c_*q^N\leq p_N\leq C_*q^N$ for every $N\geq5$.
+\end{corollary}
+\begin{proof}
+At $N=5$ match $0$ to $1$ and $2$ to $3$, leaving $4$ single.
+Put the assigned partner first at each matched vertex. Any ranking at
+the single vertex then works, since all its neighbors are matched to
+their first choice. These profiles have probability $4^{-4}$.
+At $N=6$ prescribe the adjacent pairs $(0,1),(2,3),(4,5)$ and put
+each partner first, giving probability $4^{-6}$.
+Thus $p_5\geq4^{-4}$ and $p_6\geq4^{-6}$. One may take
+\[
+ c_*=\min\{\lambda^{-6},4^{-4}q^{-5},4^{-6}q^{-6}\},\qquad
+ C_*=\max\{b_6,q^{-5},q^{-6}\},
+\]
+using $p_5,p_6\leq1$ for the two upper bounds.
+\end{proof}
+
+\section{Consequences and neighboring source statements}
+At $N=5$ the range-two cycle is the complete graph $K_5$, and every
+stable partial matching has exactly one single: the number of singles is
+odd, and any two singles would block. Thus Mertens's exact computation
+\cite[Section~5, equation~(21b)]{mertenssmall2015} gives
+$p_5=4075/6912$, strengthening the elementary bound $p_5\geq4^{-4}$
+in Corollary~\ref{cor:prefix}.
+
+The first consequence makes the common base accessible through finite
+open-word counts, without a parity restriction.
+\begin{corollary}\label{cor:enclosures}
+For every $m\geq1$,
+\[
+ \frac{(b_m/b_6)^{1/m}}{24}\leq q\leq\frac{b_m^{1/m}}{24}.
+\]
+The logarithms of the endpoints differ by at most $6\log(24)/m$.
+In particular $q$ is a computable real number, and both
+$p_{2j}^{1/(2j)}$ and $p_{2j+1}^{1/(2j+1)}$ converge to $q$.
+\end{corollary}
+\begin{proof}
+Rearrange $\lambda^m\leq b_m\leq b_6\lambda^m$ and use
+$b_6\leq24^6$. For fixed $m$, the certificate definition is a finite
+decision procedure, so $b_m$ and $b_6$ are exact computable integers.
+The endpoint ratio tends effectively to one. Both subsequence limits
+follow from Theorem~\ref{thm:main}.
+\end{proof}
+
+\begin{corollary}[Fully supported rankings]\label{cor:weighted}
+Give each of the 24 rankings $\rho$ a probability $w(\rho)>0$, the same
+at every site, with independent choices. Put
+$\alpha=\min_\rho w(\rho)$, and let $a$ and $b$ be the probabilities
+of ranking offset $+1$ and offset $-1$ first, respectively.
+Let $\delta$ be the probability that three consecutive sites form either
+orientation of an exclusive triangle. There is a common base $q_w$ with
+\[
+ \sqrt{ab}\leq q_w\leq(1-\delta)^{1/3}<1
+\]
+such that the solvability probability $p_N(w)$ satisfies, for $N\geq7$,
+\[
+ \alpha^6 q_w^{-6}q_w^N\leq p_N(w)\leq\alpha^{-6}q_w^N.
+\]
+Positive constants extend the same conclusion to every $N\geq5$.
+This generalization is not posed in the source.
+\end{corollary}
+\begin{proof}
+Let $B_m$ be the total product probability of certified open words,
+with $B_0=1$. The restriction and six-site maps give
+\[
+ B_{m+k}\leq B_mB_k,\qquad
+ \alpha^6B_mB_k\leq B_{m+k+6},\qquad
+ \alpha^6B_{N-6}\leq p_N(w)\leq B_N.
+\]
+Indeed each selected completion contributes the original product weight
+times six factors at least $\alpha$, and the maps are injective.
+Since $B_{m+k+6}\leq B_{m+k}B_6\leq B_{m+k}$, the logarithms
+$g_m=\log B_m$ obey
+$g_m+g_k-6\log(1/\alpha)\leq g_{m+k}\leq g_m+g_k$.
+The proof of Lemma~\ref{lem:defect} applies without the condition
+$g_m\geq0$: it uses only a finite linear lower bound, supplied here by
+$B_m\geq a^{\lceil m/2\rceil}b^{\lfloor m/2\rfloor}$.
+Thus for $h_w=\inf_{m\geq1}g_m/m$,
+\[
+ e^{h_wm}\leq B_m\leq\alpha^{-6}e^{h_wm}.
+\]
+The displayed lower bound implies $e^{h_w}\geq\sqrt{ab}$.
+The exclusive triangles exclude total probability $\delta>0$, whence
+$B_3\leq1-\delta$ and $e^{h_w}\leq(1-\delta)^{1/3}<1$.
+Set $q_w=e^{h_w}$ and use the cyclic sandwich.
+The fixed matchings used in Corollary~\ref{cor:prefix} have positive
+probability under full support, giving the two smaller sizes.
+\end{proof}
+
+For example, support on rankings with offset $+1$ first and $-1$ second
+gives every even cycle a stable adjacent-pair matching, so $p_{2j}=1$:
+each matched vertex has its first or second choice, and every vertex
+with its second choice rejects both distance-two neighbors.
+Full support cannot simply be removed from Corollary~\ref{cor:weighted}.
+This is an obstruction to that unposed generalization, not a
+counterexample to Mertens's uniform-law conjecture.
+
+\begin{corollary}[Triangle packing]\label{cor:packing}
+Let $G$ be a finite simple graph on $N$ vertices with maximum degree at
+most $D\geq2$, and let $t$ be the number of triangles in any
+vertex-disjoint triangle family. Under independent uniform neighbor
+rankings, its stable-partial-matching probability $P(G)$ satisfies
+\[
+ D^{-N}\leq P(G)\leq
+ \left(1-\frac{2}{[D(D-1)]^3}\right)^t.
+\]
+In particular $p_N\leq(1-1/864)^{\lfloor N/3\rfloor}$ for range-two
+cycles. More generally an arbitrary vertex-disjoint family $\mathcal C$
+of odd cycles gives the upper bound
+\[
+ P(G)\leq\prod_{C\in\mathcal C}
+ \left(1-\frac{2}{[D(D-1)]^{|C|}}\right).
+\]
+These are two exponential bounds, not a common-base conclusion
+for arbitrary graph families.
+\end{corollary}
+\begin{proof}
+Choose a maximal matching and put its assigned partner first at every
+matched vertex. Its unmatched vertices are independent, so every such
+profile is stable. The event has probability
+$\prod_{v\text{ matched}}\deg(v)^{-1}\geq D^{-N}$.
+For a triangle with vertices $u,v,z$, the two exclusive orientations
+have total probability
+$2/\prod_{x\in\{u,v,z\}}[\deg(x)(\deg(x)-1)]$,
+at least $2/[D(D-1)]^3$, and each prevents stability.
+The events on vertex-disjoint triangles are independent.
+For a range-two cycle, take the $\lfloor N/3\rfloor$ consecutive triples.
+For any odd cycle the same exclusive-order construction prevents a
+stable matching: an internally unmatched vertex and its successor form
+a blocking pair. Its two orientations have probability
+$2/\prod_{v\in C}[\deg(v)(\deg(v)-1)]$. Independence for disjoint
+vertex sets gives the product bound.
+\end{proof}
+
+\begin{corollary}[Mertens's range-one formula]\label{cor:rangeone}
+For the range-one cycle on $N\geq3$ vertices with uniform independent
+rankings, the solvability probability is $1$ for even $N$ and
+$1-2^{1-N}$ for odd $N$, as in \cite[equation~(13)]{mertens2005}.
+\end{corollary}
+\begin{proof}
+If the first choices are not all directed around the cycle in the same
+orientation, some adjacent pair ranks each other first. Fix that pair;
+the remaining graph is a path. On a finite forest with an edge, directing
+each nonisolated vertex toward its first choice produces a mutual-first
+pair, since a directed cycle of length at least three would yield an
+undirected cycle. Repeatedly fix and delete such pairs. Earlier pairs
+reject every later vertex, so the resulting matching is stable.
+If all choices have one orientation, an odd cycle is exclusive and
+unsolvable; an even cycle has a stable alternating adjacent-pair matching.
+The two exclusive full-cycle profiles each have probability $2^{-N}$.
+\end{proof}
+Thus the range-one exception precedes Conjecture~3 in its source;
+applying exponential decay with $q<1$ to that exception would not be the
+claim posed there.
+
+\begin{corollary}[Complete-graph endpoint; Young--Studebaker]
+\label{cor:complete}
+At $p=1$, the even-$N$ solvability probability in Mertens's
+Conjecture~5, equation~(19), is
+\[
+ P_N\sim C_*N^{-1/4},\qquad
+ C_*=\frac{e\,2^{1/4}\Gamma(3/4)}{\sqrt\pi},
+\]
+by \cite[Theorem~1.1]{young2026}. Here
+$\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\,dt$ for $s>0$.
+The predicted coefficient $e\sqrt{2/\pi}$ in equations~(7) and~(19)
+is corrected by this theorem; the interior $0<p<1$ is not covered.
+\end{corollary}
+\begin{proof}
+The graph $G(N,1)$ is deterministically the complete graph.
+For even $N$ a stable partial matching in a complete graph cannot have
+singles: two singles would block, and their number must be even.
+The models therefore coincide, and the cited theorem applies.
+\end{proof}
+
+\section{Coverage and verification}
+The written proofs above establish the all-length statement and the
+finite-prefix extension. The following pinned Lean declarations give
+formal counterparts with the same labelled-profile and single-agent
+conventions; their namespace prefix is
+\texttt{D5.S3.Combinatorics.Graph.Roommates}.
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.44\linewidth}p{0.50\linewidth}@{}}
+\toprule
+Declaration & Mathematical coverage \\
+\midrule
+\leanfile{SourceModel}{\texttt{SourceModel.card\_profile}} &
+Independent uniform rankings; $24^{n+5}$ profiles.\\[3pt]
+\leanfile{OpenCertificates}{\texttt{OpenCertificates.count\_lower},\newline
+\texttt{count\_submultiplicative},\newline\texttt{count\_three\_bound}} &
+$6^m\leq b_m$, submultiplicativity, and $b_3\leq13808$.\\[3pt]
+\leanfile{BufferLayout}{\texttt{BufferLayout.buffer\_completion}} &
+Six-site free-vertex matching with at most one central single.\\[3pt]
+\leanfile{PaddedCompletion}{\texttt{PaddedCompletion.}\newline
+\texttt{count\_padded\_supermultiplicative}} &
+$b_mb_k\leq b_{m+k+6}$.\\[3pt]
+\leanfile{CyclicClosure}{\texttt{CyclicClosure.}\newline
+\texttt{count\_le\_successful\_profile\_count},\newline
+\texttt{source\_count\_le\_open\_count}} &
+$b_m\leq A_{m+6}$ and $A_N\leq b_N$.\\[3pt]
+\leanfile{GrowthTransfer}{\texttt{GrowthTransfer.result}} &
+$\exists q,c,C>0$, $q<1$, $cq^{n+5}\leq p_{n+5}\leq Cq^{n+5}$
+for every $n\geq2$, with no combinatorial premises.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The accompanying exact-arithmetic checker covers open words of lengths
+zero through three, their cyclic completions at sizes seven through nine,
+every gap-occupancy pattern, selected fully supported rational laws, and
+range-one cycles of sizes three through nine. Its detailed counts and
+scope are in the supporting files. The all-length injections, base
+enclosures, weighted extension, triangle-packing bounds and range-one
+formula are written proofs. The complete-graph asymptotic is the cited
+theorem of Young and Studebaker, not a consequence of the range-two
+argument. The pinned declarations above concern the uniform range-two
+model at $N\geq7$; the extension to $N=5,6$, explicit interval for $q$,
+and Corollaries~\ref{cor:enclosures}--\ref{cor:complete} have the written
+or cited coverage just specified.
+
+For context, the following table separates the statements in the posing
+paper \cite{mertens2005}; ``not covered'' describes the scope of this
+note rather than a claim about their current status.
+\begin{center}\small
+\begin{tabular}{@{}p{0.30\linewidth}p{0.64\linewidth}@{}}
+\toprule
+Source item & Coverage \\
+\midrule
+Conjecture 1, equation (7) & Prior proof cited: Young--Studebaker (2026)
+prove the exponent and correct the asserted coefficient.\\[3pt]
+Conjecture 2, equation (9) & Not covered: expected size of the odd stable
+cycles in unsolvable complete-graph instances.\\[3pt]
+Conjecture 3, equation (15) & Proved here for $d=1,r=2$.
+Other dimensions and ranges are not covered.\\[3pt]
+Equation (13) & Reproved; prior proof Mertens (2005).
+Corollary~\ref{cor:rangeone}; probability tends to one.\\[3pt]
+Five-agent range-two cycle & Prior exact value Mertens (2015),
+\cite[equation~(21b)]{mertenssmall2015}: $p_5=4075/6912$.\\[3pt]
+Equation (14) and following heuristic & Proved: independent triangle
+and odd-cycle packing gives Corollary~\ref{cor:packing}, without asserting a common
+base for other grids.\\[3pt]
+Conjecture 4, equations (17)--(18) & Not covered: sparse
+Erd\H{o}s--R\'enyi acceptability graphs.\\[3pt]
+Conjecture 5, equation (19) & Refuted-and-corrected at $p=1$ by the
+cited Young--Studebaker coefficient; $0<p<1$ not covered.\\[3pt]
+Weighted rankings; effective base bounds & Not posed; proved in
+Corollaries~\ref{cor:weighted} and~\ref{cor:enclosures}.
+No full-support claim is made for arbitrary restricted laws.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{thebibliography}{9}
+\bibitem{mertens2005}
+S. Mertens, Random stable matchings,
+\emph{Journal of Statistical Mechanics: Theory and Experiment} (2005),
+P10008. \href{https://doi.org/10.1088/1742-5468/2005/10/P10008}{doi:10.1088/1742-5468/2005/10/P10008}.
+Posing locators refer to \href{https://arxiv.org/abs/cond-mat/0509221v2}{arXiv:cond-mat/0509221v2}.
+\bibitem{mertens2015}
+S. Mertens, Stable roommates problem with random preferences,
+\emph{Journal of Statistical Mechanics: Theory and Experiment} (2015),
+P01020. \href{https://doi.org/10.1088/1742-5468/2015/01/P01020}{doi:10.1088/1742-5468/2015/01/P01020};
+\href{https://arxiv.org/abs/1401.5269v2}{arXiv:1401.5269v2}.
+\bibitem{mertenssmall2015}
+S. Mertens, Small random instances of the stable roommates problem,
+\emph{Journal of Statistical Mechanics: Theory and Experiment} (2015),
+P06034. \href{https://doi.org/10.1088/1742-5468/2015/06/P06034}{doi:10.1088/1742-5468/2015/06/P06034};
+\href{https://arxiv.org/abs/1502.06635v1}{arXiv:1502.06635v1},
+Section~5, equation~(21b).
+\bibitem{young2026}
+C. Young and I. Studebaker, Sharp asymptotics for the solvability
+probability of random stable roommates,
+\href{https://arxiv.org/abs/2610.07741v1}{arXiv:2610.07741v1} (2026), Theorem~1.1.
+\bibitem{chin2026}
+B. Chin and M. Michelen, The random stable roommates problem typically
+has no solution, \href{https://arxiv.org/abs/2601.07612v1}{arXiv:2601.07612v1}
+(2026), Theorem~1.
+\end{thebibliography}
+\smallskip
+\noindent\small\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International
+(\href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}).
+\end{document}

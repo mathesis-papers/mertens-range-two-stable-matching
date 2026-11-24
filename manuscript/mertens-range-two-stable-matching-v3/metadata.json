@@ -1,0 +1,15 @@
+{
+  "id": "mertens-range-two-stable-matching",
+  "revision": 3,
+  "problem_ids": ["mertens-2005-range-two-stable-matching"],
+  "topic": "Mertens's Conjecture 3 for periodic one-dimensional range-two stable partial matchings",
+  "title": "Mertens's range-two stable-matching conjecture and fully supported preference laws",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "For Mertens's Conjecture 3 in Random stable matchings (Section 3.2, equation (15), page 7; arXiv:cond-mat/0509221v2), we prove p_N=Theta(q^N) for the one-dimensional range-two model, simultaneously for both parities, by a six-site completion of open preference words. Here p_N is the probability of a stable partial matching, and q is in (0,1). The same construction proves this conclusion for every fully supported independent identically distributed law on the 24 local rankings. For the uniform law it gives explicit finite-size bounds and convergent enclosures for q. We also give the elementary range-one comparison and triangle-packing bounds, and explain the complete-graph endpoint of Conjecture 5 using Young and Studebaker's corrected asymptotic constant.",
+  "summary": "Six-site completion proves common-base decay for range-two cycles under uniform or fully supported iid rankings, with effective base enclosures and precisely scoped neighboring results.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/f960cb09514c99f42fd07398f5240a77378ea4db/D5/S3/Combinatorics/Graph/Roommates/GrowthTransfer.lean"
+}

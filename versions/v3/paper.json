@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 97976,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "3cd7a4bc681c43459aff25d73668b666f7db3313c43b706b04f7d24a0aa1049b",
+      "sha256": "3cd7a4bc681c43459aff25d73668b666f7db3313c43b706b04f7d24a0aa1049b"
+    },
+    "source": {
+      "bytes": 20125,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "7749ed2eaceccab2a57359ac71ece73a7a287a2b064edde29ff04793cdc82d4a",
+      "sha256": "7749ed2eaceccab2a57359ac71ece73a7a287a2b064edde29ff04793cdc82d4a"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "For Mertens's Conjecture 3 in Random stable matchings (Section 3.2, equation (15), page 7; arXiv:cond-mat/0509221v2), we prove p_N=Theta(q^N) for the one-dimensional range-two model, simultaneously for both parities, by a six-site completion of open preference words. Here p_N is the probability of a stable partial matching, and q is in (0,1). The same construction proves this conclusion for every fully supported independent identically distributed law on the 24 local rankings. For the uniform law it gives explicit finite-size bounds and convergent enclosures for q. We also give the elementary range-one comparison and triangle-packing bounds, and explain the complete-graph endpoint of Conjecture 5 using Young and Studebaker's corrected asymptotic constant.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 3,
+    "doi": null,
+    "lean_source": {
+      "revision": "f960cb09514c99f42fd07398f5240a77378ea4db",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/f960cb09514c99f42fd07398f5240a77378ea4db/D5/S3/Combinatorics/Graph/Roommates/GrowthTransfer.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 97976,
+      "sha256": "3cd7a4bc681c43459aff25d73668b666f7db3313c43b706b04f7d24a0aa1049b",
+      "url": "/api/v1/collected-papers/mertens-range-two-stable-matching/files/pdf?version=3"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-24T00:53:07.859385769Z",
+    "record": "mertens-range-two-stable-matching",
+    "repository_name": "mertens-range-two-stable-matching",
+    "source": {
+      "bytes": 20125,
+      "sha256": "7749ed2eaceccab2a57359ac71ece73a7a287a2b064edde29ff04793cdc82d4a",
+      "url": "/api/v1/collected-papers/mertens-range-two-stable-matching/files/source?version=3"
+    },
+    "title": "Mertens's range-two stable-matching conjecture and fully supported preference laws",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-24T00:53:07.859385769Z",
+        "revision": "3",
+        "version": 3
+      }
+    ],
+    "work": "mertens-range-two-stable-matching"
+  }
+}

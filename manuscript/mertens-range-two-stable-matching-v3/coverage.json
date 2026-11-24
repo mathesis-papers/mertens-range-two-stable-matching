@@ -1,0 +1,28 @@
+{
+  "primary_source": "https://arxiv.org/abs/cond-mat/0509221v2",
+  "posing_locator": "Section 3.2, Conjecture 3, equation (15), printed/PDF page 7",
+  "posing_statement": "P_n = Theta(q^n)",
+  "posing_conditions": "The proposed base q<1 may depend on dimension and neighborhood range, rather than market size; the preceding range-one exception is retained.",
+  "model": "Labelled periodic cycles, four distinct signed neighbors at distances 1 and 2, independent uniform strict rankings; acceptable stable partial matchings, singles allowed; each profile counted once.",
+  "items": [
+    {"source_item":"Conjecture 1, equation (7), page 5", "source_formula":"P_n ~= e sqrt(2/pi) n^(-1/4)", "coverage":"prior proof cited; asserted coefficient refuted-and-corrected", "scope":"Young and Studebaker (2026), Theorem 1.1, even complete-graph sizes: C_* = e 2^(1/4) Gamma(3/4)/sqrt(pi). Not a consequence of the range-two argument."},
+    {"source_item":"Conjecture 2, equation (9), page 6", "source_formula":"E n_odd = Theta(sqrt(n/ln n)), conditioned on unsolvability", "coverage":"not covered", "scope":"Expected total number of vertices in odd stable cycles; not the number of odd cycles or number of stable partitions."},
+    {"source_item":"Conjecture 3, equation (15), page 7", "coverage":"proved", "problem_id":"mertens-2005-range-two-stable-matching", "scope":"d=1, r=2; one q for both parities and all N>=5. Other dimensions and ranges are not covered by the common-base theorem."},
+    {"source_item":"Equation (13), page 7", "source_formula":"P_n=1 for even n; P_n=1-2^(-n+1) for odd n", "coverage":"reproved; prior proof Mertens (2005)", "note_label":"cor:rangeone", "scope":"Uniform range-one cycles with N>=3."},
+    {"source_item":"Mertens, Small random instances of the stable roommates problem (2015), Section 5, equation (21b)", "source_formula":"p_5=4075/6912", "coverage":"prior exact value cited", "scope":"At N=5 the range-two graph is K_5, and stability allows exactly one single. This finite value is distinct from the all-size common-base theorem.", "source_url":"https://arxiv.org/abs/1502.06635v1"},
+    {"source_item":"Equation (14) and following triangle heuristic, page 7", "source_formula":"2/[M_(d,r)(M_(d,r)-1)]^3", "coverage":"prior probability formula cited; packing consequence proved", "note_label":"cor:packing", "scope":"Any finite simple graph with maximum degree D and t vertex-disjoint triangles: D^(-N)<=P(G)<=(1-2/[D(D-1)]^3)^t."},
+    {"source_item":"Conjecture 4, equations (17)-(18), page 9", "source_formula":"P_n -> P_infinity(c)=omega_1 exp(-omega_2 c)", "coverage":"not covered", "scope":"Sparse Erdos-Renyi graphs G(n,c/n)."},
+    {"source_item":"Conjecture 5, equation (19), page 10", "source_formula":"P_n ~= e sqrt(2/pi) n^(-1/4), asymptotically independent of p", "coverage":"refuted-and-corrected at p=1 by prior proof cited; 0<p<1 not covered", "note_label":"cor:complete", "scope":"At p=1 the graph is complete and even-size stable partial matchings are perfect; Young-Studebaker's corrected coefficient applies."},
+    {"source_item":"Effective base enclosures", "coverage":"not posed; proved", "note_label":"cor:enclosures", "scope":"(b_m/b_6)^(1/m)/24<=q<=b_m^(1/m)/24; logarithmic gap <=6 log(24)/m; q is computable."},
+    {"source_item":"Nonuniform fully supported iid rankings", "coverage":"not posed; proved", "note_label":"cor:weighted", "scope":"One q_w for both parities; sqrt(ab)<=q_w<=(1-delta)^(1/3)<1; for N>=7, alpha^6 q_w^(N-6)<=p_N(w)<=alpha^(-6)q_w^N."},
+    {"source_item":"Arbitrary restricted-support iid rankings", "coverage":"not asserted in the source; common-base decay with q<1 fails for the stated restricted-support example", "scope":"All rankings put +1 first and -1 second; an adjacent-pair matching is stable on every even cycle, so p_(2j)=1."}
+  ],
+  "verification": {
+    "pinned_lean_revision":"f960cb09514c99f42fd07398f5240a77378ea4db",
+    "declaration":"D5.S3.Combinatorics.Graph.Roommates.GrowthTransfer.result",
+    "lean_statement_scope":"Uniform range-two profiles, singles allowed, one q and positive constants, every N=n+5 with n>=2; no combinatorial premises.",
+    "written_scope":"Explicit base interval, N=5,6 extension, effective enclosures, weighted extension, triangle-packing bounds and range-one formula.",
+    "cited_scope":"Young-Studebaker Theorem 1.1, complete-graph asymptotic and corrected endpoint coefficient; Mertens (2015), Small random instances, Section 5 equation (21b), p_5=4075/6912.",
+    "finite_scope":"Open words through length 3; all gap masks; cyclic completions at N=7,8,9; rational weighted masses through length 3; all range-one profiles at N=3,...,9; rational lower bound separating complete-graph coefficients."
+  }
+}

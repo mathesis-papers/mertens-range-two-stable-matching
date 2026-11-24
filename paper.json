@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24486340",
     "current_version": 3,
-    "doi": null,
+    "doi": "10.5281/zenodo.24486341",
     "lean_source": {
       "revision": "f960cb09514c99f42fd07398f5240a77378ea4db",
       "url": "https://github.com/the-omega-institute/trureturing/blob/f960cb09514c99f42fd07398f5240a77378ea4db/D5/S3/Combinatorics/Graph/Roommates/GrowthTransfer.lean"

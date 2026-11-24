@@ -5,13 +5,15 @@
 For Mertens's Conjecture 3 in Random stable matchings (Section 3.2, equation (15), page 7; arXiv:cond-mat/0509221v2), we prove p_N=Theta(q^N) for the one-dimensional range-two model, simultaneously for both parities, by a six-site completion of open preference words. Here p_N is the probability of a stable partial matching, and q is in (0,1). The same construction proves this conclusion for every fully supported independent identically distributed law on the 24 local rankings. For the uniform law it gives explicit finite-size bounds and convergent enclosures for q. We also give the elementary range-one comparison and triangle-packing bounds, and explain the complete-graph endpoint of Conjecture 5 using Young and Studebaker's corrected asymptotic constant.
 
 - PDF: [frozen public file](paper.pdf)
+- DOI: [https://doi.org/10.5281/zenodo.24486341](https://doi.org/10.5281/zenodo.24486341)
+- Concept DOI: [https://doi.org/10.5281/zenodo.24486340](https://doi.org/10.5281/zenodo.24486340)
 - License: CC-BY-4.0
 - Version: 3
 - Mathesis record: [mertens-range-two-stable-matching](https://mathesis-omega-research.apps.chrono-ai.fun/papers/mertens-range-two-stable-matching?version=3)
 
 ## How to cite
 
-Haobo Ma, Wenlin Zhang (2026). Mertens's range-two stable-matching conjecture and fully supported preference laws. Mathesis, version 3. https://mathesis-omega-research.apps.chrono-ai.fun/papers/mertens-range-two-stable-matching?version=3
+Haobo Ma, Wenlin Zhang (2026). Mertens's range-two stable-matching conjecture and fully supported preference laws. Mathesis, version 3. https://doi.org/10.5281/zenodo.24486341
 
 ## Statement progress
 

@@ -32,9 +32,9 @@
     "manuscript/mertens-range-two-stable-matching-v3/metadata.json": "74955c060525f04e50eeed9e1f5b25c54b91ff2563b392d931dcfacdd4ed0353",
     "manuscript/mertens-range-two-stable-matching-v3/note.tex": "cbc6a80d103d985b7b9ee2ba09fda2a3cdb099c4ad973c77d736816df4e2ef03",
     "manuscript/mertens-range-two-stable-matching-v3/verify.py": "b48c14703a9dfa9326d07ac79887a27cad89207d22cb0513c0e817f7f57a1af6",
-    "paper.json": "a8b52a3f9eca37b1462b7fdca846b2164876ee81dfa47d5234b9116b6cceab9d",
+    "paper.json": "4a45b4ab4911d88a8688506e8f7e72570c7b0d9c823dfc9dee45152dcb901780",
     "paper.pdf": "3cd7a4bc681c43459aff25d73668b666f7db3313c43b706b04f7d24a0aa1049b",
     "source.archive": "7749ed2eaceccab2a57359ac71ece73a7a287a2b064edde29ff04793cdc82d4a"
   },
-  "snapshot_identity": "268b8f207053bc74def0de66588e66632c338b89d5d9d359ffbae280d8ad3f47"
+  "snapshot_identity": "81f58bc3bd1d38c48cc351dd5c18eca92a0872c67f15aa6c401767a655ead1b4"
 }

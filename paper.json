@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24486340",
     "current_version": 3,
     "doi": "10.5281/zenodo.24486341",
+    "kind": "note",
     "lean_source": {
       "revision": "f960cb09514c99f42fd07398f5240a77378ea4db",
       "url": "https://github.com/the-omega-institute/trureturing/blob/f960cb09514c99f42fd07398f5240a77378ea4db/D5/S3/Combinatorics/Graph/Roommates/GrowthTransfer.lean"
@@ -55,10 +56,12 @@
     "title": "Mertens's range-two stable-matching conjecture and fully supported preference laws",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-24T00:53:07.859385769Z",
         "revision": "3",
-        "version": 3
+        "version": 3,
+        "version_label": null
       }
     ],
     "work": "mertens-range-two-stable-matching"
